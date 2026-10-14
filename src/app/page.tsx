@@ -2,21 +2,203 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { AnimatedTooth, Reveal, SmileLine } from "@/components/animations";
-import { ContactCTA, Eyebrow, Location, TextLink, WhatsAppButton } from "@/components/ui";
+import {
+  ContactCTA,
+  Eyebrow,
+  Location,
+  TextLink,
+  WhatsAppButton,
+} from "@/components/ui";
 import { ServiceList } from "@/components/service-list";
 import { FAQ } from "@/components/faq";
 import { clinic } from "@/config/clinic";
 
 export default function Home() {
-  return <>
-    <section className="shell hero">
-      <div className="hero-copy"><Eyebrow><span className="locality-dot" />{clinic.area} · {clinic.city}</Eyebrow><h1>Thoughtful<br />dental care.<br /><em>Here in Islamabad.</em></h1><div className="hero-description"><span className="accent-rule" /><p>Every smile has a story. Explore dental care at {clinic.name}, and start with a conversation about yours.</p></div><div className="hero-actions"><WhatsAppButton /><a className="text-link" href={`tel:${clinic.phoneTel}`}>Call the clinic<ArrowUpRight size={17} aria-hidden="true" /></a></div><p className="fineprint hero-fineprint">{clinic.contactNotice}</p><a href="#care" className="explore-link"><ArrowDown size={16} aria-hidden="true" />A little more about your care</a></div>
-      <figure className="hero-figure"><div className="hero-image-wrap"><Image src="/images/dental-studio.jpg" alt="Illustrative photograph of a bright dental treatment room; not the Nayyar clinic" fill priority sizes="(max-width: 760px) 90vw, 43vw" className="editorial-photo hero-photo" /><div className="hero-art"><AnimatedTooth /><span>CARE, CONSIDERED.</span></div><span className="photo-margin">A THOUGHTFUL BEGINNING / DENTAL CARE</span></div><figcaption><span>Space to begin a conversation.</span><span>Generic image · Not the clinic</span></figcaption></figure>
-    </section>
-    <section className="confidence-strip"><div className="shell confidence-inner"><span className="eyebrow">A clearer way to begin</span><p>Understand your options.<span>Ask your questions.</span>Take the next step.</p><span className="confidence-mark" aria-hidden="true">N.</span></div></section>
-    <section id="care" className="shell services-section"><Reveal className="section-heading"><div><Eyebrow index="01">Dental care, explained</Eyebrow><h2>Care for the everyday.<br /><em>And the next chapter.</em></h2></div><div className="section-heading-aside"><p>From routine care to restorative conversations, a useful place to explore your options.</p><TextLink href="/services">Explore all dental care</TextLink></div></Reveal><ServiceList /><div className="service-bottom-note"><p>Care categories from public profiles. Availability and suitability require clinic confirmation.</p><Link href="/services" className="index-link">View the full care index <span>01—09</span><ArrowUpRight size={17} aria-hidden="true" /></Link></div></section>
-    <section className="philosophy-section"><div className="shell philosophy-grid"><div className="philosophy-art"><span className="eyebrow">A considered approach</span><AnimatedTooth /><div className="art-caption"><span>01 / LISTEN</span><span>02 / UNDERSTAND</span><span>03 / DISCUSS</span></div></div><Reveal className="philosophy-copy"><Eyebrow index="02">The practice</Eyebrow><h2>Your questions<br />deserve <em>space.</em></h2><SmileLine /><p className="body-copy">A dental visit can start with something simple: a question, a concern, or a wish to understand your options.</p><p className="body-copy">This concept presents a patient-focused way to discover {clinic.name} in {clinic.area}. Ask the clinic about its current approach, clinicians, and care before arranging a visit.</p><TextLink href="/about">Get to know the practice</TextLink></Reveal></div></section>
-    <section className="shell journey-section"><div className="section-heading"><div><Eyebrow index="03">From here to your visit</Eyebrow><h2>Three steps.<br /><em>One conversation.</em></h2></div><p className="section-heading-aside">An enquiry is the beginning. Your appointment is confirmed by clinic staff.</p></div><div className="journey"><svg className="journey-thread" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 20C180 0 240 40 360 20S560 0 700 20S850 40 1000 20" /></svg>{[{ title: "Explore", text: "Read about care categories and make a note of what you’d like to ask." }, { title: "Enquire", text: "Call or send a simple WhatsApp message. Ask about availability, fees, and opening hours." }, { title: "Plan your visit", text: "Wait for staff to confirm your appointment, then check the location before travelling." }].map((step, i) => <Reveal key={step.title} delay={i * 60} className="journey-step"><span className="journey-number">0{i + 1}</span><h3>{step.title}</h3><p>{step.text}</p></Reveal>)}</div></section>
-    <FAQ /><Location /><ContactCTA />
-  </>;
+  return (
+    <>
+      <section className="shell hero">
+        <div className="hero-copy">
+          <Eyebrow>
+            <span className="locality-dot" />
+            {clinic.area} · {clinic.city}
+          </Eyebrow>
+          <h1>
+            Thoughtful
+            <br />
+            dental care.
+            <br />
+            <em>Here in Islamabad.</em>
+          </h1>
+          <div className="hero-description">
+            <span className="accent-rule" />
+            <p>
+              Every smile has a story. Explore dental care at {clinic.name}, and
+              start with a conversation about yours.
+            </p>
+          </div>
+          <div className="hero-actions">
+            <WhatsAppButton />
+            <a className="text-link" href={`tel:${clinic.phoneTel}`}>
+              Call the clinic
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </a>
+          </div>
+          <p className="fineprint hero-fineprint">{clinic.contactNotice}</p>
+          <a href="#care" className="explore-link">
+            <ArrowDown size={16} aria-hidden="true" />A little more about your
+            care
+          </a>
+        </div>
+        <figure className="hero-figure">
+          <div className="hero-image-wrap">
+            <Image
+              src="/images/dental-studio.jpg"
+              alt="Illustrative photograph of a bright dental treatment room; not the Nayyar clinic"
+              fill
+              priority
+              sizes="(max-width: 760px) 90vw, 43vw"
+              className="editorial-photo hero-photo"
+            />
+            <div className="hero-art">
+              <AnimatedTooth />
+              <span>CARE, CONSIDERED.</span>
+            </div>
+            <span className="photo-margin">
+              A THOUGHTFUL BEGINNING / DENTAL CARE
+            </span>
+          </div>
+          <figcaption>
+            <span>Space to begin a conversation.</span>
+            <span>Generic image · Not the clinic</span>
+          </figcaption>
+        </figure>
+      </section>
+      <section className="confidence-strip">
+        <div className="shell confidence-inner">
+          <span className="eyebrow">A clearer way to begin</span>
+          <p>
+            Understand your options.<span>Ask your questions.</span>Take the
+            next step.
+          </p>
+          <span className="confidence-mark" aria-hidden="true">
+            N.
+          </span>
+        </div>
+      </section>
+      <section id="care" className="shell services-section">
+        <Reveal className="section-heading">
+          <div>
+            <Eyebrow index="01">Dental care, explained</Eyebrow>
+            <h2>
+              Care for the everyday.
+              <br />
+              <em>And the next chapter.</em>
+            </h2>
+          </div>
+          <div className="section-heading-aside">
+            <p>
+              From routine care to restorative conversations, a useful place to
+              explore your options.
+            </p>
+            <TextLink href="/services">Explore all dental care</TextLink>
+          </div>
+        </Reveal>
+        <ServiceList />
+        <div className="service-bottom-note">
+          <p>
+            Care categories from public profiles. Availability and suitability
+            require clinic confirmation.
+          </p>
+          <Link href="/services" className="index-link">
+            View the full care index <span>01—09</span>
+            <ArrowUpRight size={17} aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+      <section className="philosophy-section">
+        <div className="shell philosophy-grid">
+          <div className="philosophy-art">
+            <span className="eyebrow">A considered approach</span>
+            <AnimatedTooth />
+            <div className="art-caption">
+              <span>01 / LISTEN</span>
+              <span>02 / UNDERSTAND</span>
+              <span>03 / DISCUSS</span>
+            </div>
+          </div>
+          <Reveal className="philosophy-copy">
+            <Eyebrow index="02">The practice</Eyebrow>
+            <h2>
+              Your questions
+              <br />
+              deserve <em>space.</em>
+            </h2>
+            <SmileLine />
+            <p className="body-copy">
+              A dental visit can start with something simple: a question, a
+              concern, or a wish to understand your options.
+            </p>
+            <p className="body-copy">
+              This concept presents a patient-focused way to discover{" "}
+              {clinic.name} in {clinic.area}. Ask the clinic about its current
+              approach, clinicians, and care before arranging a visit.
+            </p>
+            <TextLink href="/about">Get to know the practice</TextLink>
+          </Reveal>
+        </div>
+      </section>
+      <section className="shell journey-section">
+        <div className="section-heading">
+          <div>
+            <Eyebrow index="03">From here to your visit</Eyebrow>
+            <h2>
+              Three steps.
+              <br />
+              <em>One conversation.</em>
+            </h2>
+          </div>
+          <p className="section-heading-aside">
+            An enquiry is the beginning. Your appointment is confirmed by clinic
+            staff.
+          </p>
+        </div>
+        <div className="journey">
+          <svg
+            className="journey-thread"
+            viewBox="0 0 1000 40"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              pathLength="1"
+              d="M0 20C180 0 240 40 360 20S560 0 700 20S850 40 1000 20"
+            />
+          </svg>
+          {[
+            {
+              title: "Explore",
+              text: "Read about care categories and make a note of what you’d like to ask.",
+            },
+            {
+              title: "Enquire",
+              text: "Call or send a simple WhatsApp message. Ask about availability, fees, and opening hours.",
+            },
+            {
+              title: "Plan your visit",
+              text: "Wait for staff to confirm your appointment, then check the location before travelling.",
+            },
+          ].map((step, i) => (
+            <Reveal key={step.title} delay={i * 60} className="journey-step">
+              <span className="journey-number">0{i + 1}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+      <FAQ />
+      <Location />
+      <ContactCTA />
+    </>
+  );
 }

@@ -28,18 +28,26 @@ export const clinic: ClinicConfig = {
   phoneTel: "+92514938161",
   whatsAppDisplay: "0302-5188884",
   whatsAppDigits: "923025188884",
-  mapsSearchUrl: "https://www.google.com/maps/search/?api=1&query=Nayyar+Dental+Associates+I-8+Markaz+Islamabad",
+  mapsSearchUrl:
+    "https://www.google.com/maps/search/?api=1&query=Nayyar+Dental+Associates+I-8+Markaz+Islamabad",
   social: {
     instagram: "https://www.instagram.com/nayyar_dental_associates/",
-    facebook: "https://www.facebook.com/p/Nayyar-Dental-Associates-100054313879169/",
+    facebook:
+      "https://www.facebook.com/p/Nayyar-Dental-Associates-100054313879169/",
     linkedin: "https://pk.linkedin.com/company/nayyar-dental-associates",
   },
   hours: null,
-  bookingDisclaimer: "Appointment enquiries are confirmed only after clinic staff replies.",
+  bookingDisclaimer:
+    "Appointment enquiries are confirmed only after clinic staff replies.",
   demoNotice: "Concept website · Details pending clinic confirmation",
   verificationRequired: true,
-  contactNotice: "Publicly listed contact numbers; awaiting clinic verification.",
-  history: { year: 2005, attribution: "The practice’s public LinkedIn profile reports treating patients since" },
+  contactNotice:
+    "Publicly listed contact numbers; awaiting clinic verification.",
+  history: {
+    year: 2005,
+    attribution:
+      "The practice’s public LinkedIn profile reports treating patients since",
+  },
 };
 
 export const defaultMessage = `Hello, I would like to enquire about an appointment at ${clinic.name}.`;
